@@ -7,8 +7,8 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./certs:/etc/nginx/certs
+      - ./configuration/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./configuration/nginx/certs:/etc/nginx/certs
     depends_on:
       - chirpstack
     networks:
@@ -103,6 +103,7 @@ services:
       - ./configuration/mosquitto/config/:/mosquitto/config/
     networks:
       - chirpstack_network
-      
+
 networks:
   chirpstack_network:
+
