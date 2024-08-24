@@ -79,7 +79,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./configuration/postgresql/initdb:/docker-entrypoint-initdb.d
-      - postgresqldata:/var/lib/postgresql/data
+      - /home/mate/data/postgres:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=root
     networks:
@@ -90,7 +90,7 @@ services:
     restart: unless-stopped
     command: redis-server --save 300 1 --save 60 100 --appendonly no
     volumes:
-      - redisdata:/data
+      - /home/mate/data/redis:/data
     networks:
       - chirpstack_network
 
